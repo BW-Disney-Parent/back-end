@@ -26,8 +26,7 @@ exports.up = function(knex) {
         .defaultTo(false)
         .notNullable();
       tbl.string("meetingPlace").notNullable();
-      tbl.time("time").notNullable();
-      tbl.date("date").notNullable();
+      tbl.datetime("dateTime").notNullable();
       tbl.integer("kids").notNullable();
       tbl.string("description");
     })
