@@ -37,8 +37,14 @@ router.post("/register", requiredRegistration, (req, res) => {
   const hash = bcrypt.hashSync(creds.password, salt);
 
   Users.insert({ ...creds, password: hash })
-    .then(user => {
-      res.status(201).json({ message: "User created!" });
+    .then(() => {
+      Users.getBy({ username: creds.username }).then(user => {
+        const token = generateToken(user);
+        res.status(201).json({
+          id: user.id,
+          token
+        });
+      });
     })
     .catch(err => {
       res.status(500).json({ message: "", error: err });
