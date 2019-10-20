@@ -22,6 +22,10 @@ exports.up = function(knex) {
         .references("id")
         .inTable("users");
       tbl
+        .integer("chaperoneID")
+        .references("id")
+        .inTable("users");
+      tbl
         .bool("accepted")
         .defaultTo(false)
         .notNullable();

@@ -26,7 +26,8 @@ Questions
 -timeStamp: time
 
 Parents
-Navbar: My Requests (Add button)
+Navbar
+: My Requests (Add button)
 : Jobs
 : My Accepted Requests
 : My Accepted Jobs

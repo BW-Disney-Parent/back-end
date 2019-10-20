@@ -8,6 +8,7 @@ exports.seed = function(knex) {
         {
           id: 1,
           userID: 1,
+          chaperoneID: 2,
           accepted: true,
           meetingPlace: "Food Court",
           dateTime: "2019-01-01 20:00:00",
@@ -26,6 +27,7 @@ exports.seed = function(knex) {
         {
           id: 3,
           userID: 2,
+          chaperoneID: 4,
           accepted: true,
           meetingPlace: "Log Flume",
           dateTime: "2019-01-01 11:00:00",
@@ -44,6 +46,7 @@ exports.seed = function(knex) {
         {
           id: 5,
           userID: 3,
+          chaperoneID: 5,
           accepted: true,
           meetingPlace: "Food Court",
           dateTime: "2019-01-01 15:00:00",
@@ -62,6 +65,7 @@ exports.seed = function(knex) {
         {
           id: 7,
           userID: 4,
+          chaperoneID: 3,
           accepted: true,
           meetingPlace: "Space Mountain",
           dateTime: "2019-01-01 11:00:00",
@@ -89,6 +93,7 @@ exports.seed = function(knex) {
         {
           id: 10,
           userID: 5,
+          chaperoneID: 2,
           accepted: true,
           meetingPlace: "Food Court",
           dateTime: "2019-01-01 20:00:00",

@@ -1,6 +1,5 @@
 const router = require("express").Router();
 const Users = require("../users/users-model.js");
-const restricted = require("../auth/restricted-middleware.js"); //Works without middleware
 
 /*---------Get user Info---------*/
 
@@ -8,7 +7,7 @@ const restricted = require("../auth/restricted-middleware.js"); //Works without 
 // Required: id --> returns user object
 // incorrect id --> 404 No use with that ID
 // Works at 11:56am
-router.get("/:id", restricted, (req, res) => {
+router.get("/:id", (req, res) => {
   Users.getBy({ id: req.params.id })
     .then(user => {
       if (user) {
@@ -27,7 +26,7 @@ router.get("/:id", restricted, (req, res) => {
 // incorrect changes --> 500
 // Works at 11:56am
 /*---------Update User Info---------*/
-router.put("/:id", restricted, checkID, (req, res) => {
+router.put("/:id", checkID, (req, res) => {
   const changes = req.body;
   const id = req.params;
 
@@ -43,7 +42,7 @@ router.put("/:id", restricted, checkID, (req, res) => {
 });
 
 /*---------Delete User/Account---------*/
-router.delete("/:id", restricted, checkID, (req, res) => {
+router.delete("/:id", checkID, (req, res) => {
   const id = req.params;
 
   Users.deleteUser(id)
