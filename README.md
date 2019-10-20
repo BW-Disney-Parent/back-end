@@ -2,12 +2,11 @@
 
 Users
 -id
+-username
+-password
 -isParent: false
 -firstName
 -lastName
--age
--gender
--description
 
 Requests
 -id
