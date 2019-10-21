@@ -1,7 +1,7 @@
 exports.up = function(knex) {
   return knex.schema
     .createTable("users", tbl => {
-      tbl.increments();
+      tbl.increments("id");
       tbl
         .string("username")
         .notNullable()
@@ -19,11 +19,15 @@ exports.up = function(knex) {
       tbl
         .foreign("userID")
         .references("id")
-        .inTable("users");
+        .inTable("users")
+        .onDelete("cascade")
+        .onUpdate("cascade");
       tbl
         .foreign("chaperoneID")
         .references("id")
-        .inTable("users");
+        .inTable("users")
+        .onDelete("cascade")
+        .onUpdate("cascade");
       tbl
         .bool("accepted")
         .defaultTo(false)
@@ -38,11 +42,15 @@ exports.up = function(knex) {
       tbl
         .foreign("requestID")
         .references("id")
-        .inTable("requests");
+        .inTable("requests")
+        .onDelete("cascade")
+        .onUpdate("cascade");
       tbl
         .foreign("userID")
         .references("id")
-        .inTable("users");
+        .inTable("users")
+        .onDelete("cascasde")
+        .onUpdate("cascasde");
       tbl.string("content").notNullable();
       tbl.timestamps(true, true);
     });
