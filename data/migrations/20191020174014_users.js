@@ -49,8 +49,8 @@ exports.up = function(knex) {
         .integer("userID")
         .references("id")
         .inTable("users")
-        .onDelete("cascasde")
-        .onUpdate("cascasde");
+        .onDelete("cascade")
+        .onUpdate("cascade");
       tbl.string("content").notNullable();
       tbl.timestamps(true, true);
     });
