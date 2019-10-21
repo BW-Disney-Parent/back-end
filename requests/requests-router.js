@@ -29,4 +29,23 @@ router.post("/", (req, res) => {
   }
 });
 
+//Update a request
+router.put("/:requestID", (req, res) => {
+  console.log(req.body);
+  const changes = req.body;
+
+  const requestID = req.params;
+
+  console.log(changes, requestID);
+
+  Requests.update(requestID, changes)
+    .then(response => {
+      console.log(response);
+      res.status(200).json({ message: "Request Updated!" });
+    })
+    .catch(error => {
+      res.status(500).json({ message: "Server Error", error });
+    });
+});
+
 module.exports = router;

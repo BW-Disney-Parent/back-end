@@ -15,9 +15,10 @@ const insert = request => {
   return db("requests").insert(request);
 };
 
-const update = (id, changes) => {
+const update = (requestID, changes) => {
+  console.log("in update", requestID, changes);
   return db("requests")
-    .where(id)
+    .where({ id: requestID })
     .update(changes);
 };
 
