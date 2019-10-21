@@ -34,7 +34,7 @@ router.put("/:requestID", (req, res) => {
   console.log(req.body);
   const changes = req.body;
 
-  const requestID = req.params;
+  const { requestID } = req.params;
 
   console.log(changes, requestID);
 
