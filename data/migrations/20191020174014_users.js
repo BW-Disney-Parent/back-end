@@ -17,12 +17,12 @@ exports.up = function(knex) {
     .createTable("requests", tbl => {
       tbl.increments();
       tbl
-        .integer("userID")
+        .foreign("userID")
         .notNullable()
         .references("id")
         .inTable("users");
       tbl
-        .integer("chaperoneID")
+        .foreign("chaperoneID")
         .references("id")
         .inTable("users");
       tbl
@@ -37,12 +37,12 @@ exports.up = function(knex) {
     .createTable("questions", tbl => {
       tbl.increments();
       tbl
-        .integer("requestID")
+        .foreign("requestID")
         .references("id")
         .inTable("requests")
         .notNullable();
       tbl
-        .integer("userID")
+        .foreign("userID")
         .references("id")
         .inTable("users")
         .notNullable();
