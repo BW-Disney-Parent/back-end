@@ -8,9 +8,12 @@ it("should set environment to testing", () => {
   expect(process.env.DB_ENV).toBe("testing");
 });
 
+beforeEach(async () => {
+  await truncateDB();
+});
+
 describe("Insert", () => {
   it("DB is empty", async () => {
-    await truncateDB();
     const dbUsers = await db("users");
     expect(dbUsers.length).toBe(0);
   });
@@ -58,5 +61,25 @@ describe("update", () => {
     expect(prevDb.firstName).toBe("Seth");
     const dbRes = await Users.update({ id: 100 }, { firstName: "Bryan" });
     expect(dbRes.firstName).toBe("Bryan");
+  });
+});
+
+describe("deleteUser", () => {
+  it("DB deletes User with id", async () => {
+    const junk = await Users.insert({
+      id: 100,
+      username: "SethyUpdate",
+      password: "Seth",
+      firstName: "Seth",
+      lastName: "Seth"
+    });
+
+    const prevDb = await db("users");
+
+    expect(prevDb.length).toBe(1);
+    const deleteIt = await Users.deleteUser({ id: 100 });
+    const newDb = await db("users");
+
+    expect(newDb.length).toBe(0);
   });
 });
