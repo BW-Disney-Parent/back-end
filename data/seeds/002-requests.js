@@ -6,8 +6,8 @@ exports.seed = function(knex) {
       // Inserts seed entries
       return knex("requests").insert([
         {
-          userID: 1,
-          chaperoneID: 2,
+          requesterUserID: 1,
+          chaperoneUserID: 2,
           accepted: true,
           meetingPlace: "Food Court",
           dateTime: "2019-01-01 20:00:00",
@@ -15,7 +15,7 @@ exports.seed = function(knex) {
           description: "My kids are great!"
         },
         {
-          userID: 1,
+          requesterUserID: 1,
           accepted: false,
           meetingPlace: "Food Court",
           dateTime: "2019-01-01 20:00:00",
@@ -23,8 +23,8 @@ exports.seed = function(knex) {
           description: "My kids are great!"
         },
         {
-          userID: 2,
-          chaperoneID: 4,
+          requesterUserID: 2,
+          chaperoneUserID: 4,
           accepted: true,
           meetingPlace: "Log Flume",
           dateTime: "2019-01-01 11:00:00",
@@ -32,7 +32,7 @@ exports.seed = function(knex) {
           description: "My kids are great!"
         },
         {
-          userID: 2,
+          requesterUserID: 2,
           accepted: false,
           meetingPlace: "Food Court",
           dateTime: "2019-01-01 20:00:00",
@@ -40,8 +40,8 @@ exports.seed = function(knex) {
           description: "My kids are great!"
         },
         {
-          userID: 3,
-          chaperoneID: 5,
+          requesterUserID: 3,
+          chaperoneUserID: 5,
           accepted: true,
           meetingPlace: "Food Court",
           dateTime: "2019-01-01 15:00:00",
@@ -49,7 +49,7 @@ exports.seed = function(knex) {
           description: "They are great to with!"
         },
         {
-          userID: 3,
+          requesterUserID: 3,
           accepted: false,
           meetingPlace: "Food Court",
           dateTime: "2019-01-01 20:00:00",
@@ -57,8 +57,8 @@ exports.seed = function(knex) {
           description: "My kids are great!"
         },
         {
-          userID: 4,
-          chaperoneID: 3,
+          requesterUserID: 4,
+          chaperoneUserID: 3,
           accepted: true,
           meetingPlace: "Space Mountain",
           dateTime: "2019-01-01 11:00:00",
@@ -66,7 +66,7 @@ exports.seed = function(knex) {
           description: "Most of them are great; one is a trouble maker."
         },
         {
-          userID: 4,
+          requesterUserID: 4,
           accepted: false,
           meetingPlace: "Food Court",
           dateTime: "2019-01-01 20:00:00",
@@ -74,7 +74,7 @@ exports.seed = function(knex) {
           description: "My kids are great!"
         },
         {
-          userID: 5,
+          requesterUserID: 5,
           accepted: false,
           meetingPlace: "Cotton Candy Stand",
           dateTime: "2019-01-01 11:00:00",
@@ -82,8 +82,8 @@ exports.seed = function(knex) {
           description: "They can be good. Sometimes..."
         },
         {
-          userID: 5,
-          chaperoneID: 2,
+          requesterUserID: 5,
+          chaperoneUserID: 2,
           accepted: true,
           meetingPlace: "Food Court",
           dateTime: "2019-01-01 20:00:00",
