@@ -43,3 +43,20 @@ describe("getBy", () => {
     expect(dbRes.firstName).toBe("Seth");
   });
 });
+
+describe("update", () => {
+  it("DB updates firstName from Seth to Bryan", async () => {
+    const junk = await Users.insert({
+      id: 100,
+      username: "SethyUpdate",
+      password: "Seth",
+      firstName: "Seth",
+      lastName: "Seth"
+    });
+    const prevDb = await Users.getBy({ firstName: "Seth" });
+
+    expect(prevDb.firstName).toBe("Seth");
+    const dbRes = await Users.update({ id: 100 }, { firstName: "Bryan" });
+    expect(dbRes.firstName).toBe("Bryan");
+  });
+});
