@@ -6,7 +6,7 @@ const restricted = require("../auth/restricted-middleware.js");
 const authRouter = require("../auth/auth-router.js");
 const usersRouter = require("../users/users-router.js");
 const requestsRouter = require("../requests/requests-router.js");
-//questions
+const questionsRouter = require("../questions/questions-router.js");
 
 const server = express();
 
@@ -21,5 +21,6 @@ server.get("/", (req, res) => {
 server.use("/api/auth", authRouter);
 server.use("/api/users", restricted, usersRouter);
 server.use("/api/requests", restricted, requestsRouter);
+server.use("/api/questions", restricted, questionsRouter);
 
 module.exports = server;
