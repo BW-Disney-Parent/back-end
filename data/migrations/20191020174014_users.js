@@ -17,13 +17,13 @@ exports.up = function(knex) {
     .createTable("requests", tbl => {
       tbl.increments();
       tbl
-        .foreign("userID")
+        .integer("userID")
         .references("id")
         .inTable("users")
         .onDelete("cascade")
         .onUpdate("cascade");
       tbl
-        .foreign("chaperoneID")
+        .integer("chaperoneID")
         .references("id")
         .inTable("users")
         .onDelete("cascade")
@@ -40,13 +40,13 @@ exports.up = function(knex) {
     .createTable("questions", tbl => {
       tbl.increments();
       tbl
-        .foreign("requestID")
+        .integer("requestID")
         .references("id")
         .inTable("requests")
         .onDelete("cascade")
         .onUpdate("cascade");
       tbl
-        .foreign("userID")
+        .integer("userID")
         .references("id")
         .inTable("users")
         .onDelete("cascasde")
