@@ -2,11 +2,6 @@ const router = require("express").Router();
 const Users = require("../users/users-model.js");
 
 /*---------Get user Info---------*/
-
-//Get user information
-// Required: id --> returns user object
-// incorrect id --> 404 No use with that ID
-// Works at 11:56am
 router.get("/:id", (req, res) => {
   Users.getBy({ id: req.params.id })
     .then(user => {
