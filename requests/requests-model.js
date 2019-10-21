@@ -7,8 +7,11 @@ const db = require("../data/dbConfig.js");
 // get all requests where user id == me --> my requests
 // get all requests where user id == me and accept: true --> my accept requests
 // get all requests where chaperoneID == myid and accepted: true
-const getAll = filter => {
-  return db("requests").where(filter);
+const getAll = (filter, except) => {
+  console.log(filter, except);
+  return db("requests")
+    .where(filter)
+    .whereNot(except);
 };
 
 const insert = request => {
@@ -23,8 +26,10 @@ const update = (requestID, changes) => {
 };
 
 const deleteRequest = id => {
+  console.log(id);
+  console.log({ id: id });
   return db("requests")
-    .where(id)
+    .where({ id: id })
     .del();
 };
 module.exports = {
