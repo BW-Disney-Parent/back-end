@@ -20,6 +20,6 @@ server.get("/", (req, res) => {
 
 server.use("/api/auth", authRouter);
 server.use("/api/users", restricted, usersRouter);
-server.use("/api/requqests", restricted, requestsRouter);
+server.use("/api/requests", restricted, requestsRouter);
 
 module.exports = server;
