@@ -18,7 +18,6 @@ exports.up = function(knex) {
       tbl.increments();
       tbl
         .foreign("userID")
-        .notNullable()
         .references("id")
         .inTable("users");
       tbl
@@ -39,13 +38,11 @@ exports.up = function(knex) {
       tbl
         .foreign("requestID")
         .references("id")
-        .inTable("requests")
-        .notNullable();
+        .inTable("requests");
       tbl
         .foreign("userID")
         .references("id")
-        .inTable("users")
-        .notNullable();
+        .inTable("users");
       tbl.string("content").notNullable();
       tbl.timestamps(true, true);
     });
