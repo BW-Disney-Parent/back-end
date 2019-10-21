@@ -11,7 +11,13 @@ router.get("/:id", (req, res) => {
   Users.getBy({ id: req.params.id })
     .then(user => {
       if (user) {
-        res.status(200).json(user);
+        let isParentBool;
+        if (user.isParent == 1) {
+          isParentBool = true;
+        } else {
+          isParentBool = false;
+        }
+        res.status(200).json({ ...user, isParent: isParentBool });
       } else {
         res.status(404).json({ message: "No user with that ID!" });
       }

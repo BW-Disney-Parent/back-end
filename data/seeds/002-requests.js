@@ -6,7 +6,6 @@ exports.seed = function(knex) {
       // Inserts seed entries
       return knex("requests").insert([
         {
-          id: 1,
           userID: 1,
           chaperoneID: 2,
           accepted: true,
@@ -16,7 +15,6 @@ exports.seed = function(knex) {
           description: "My kids are great!"
         },
         {
-          id: 2,
           userID: 1,
           accepted: false,
           meetingPlace: "Food Court",
@@ -25,7 +23,6 @@ exports.seed = function(knex) {
           description: "My kids are great!"
         },
         {
-          id: 3,
           userID: 2,
           chaperoneID: 4,
           accepted: true,
@@ -35,7 +32,6 @@ exports.seed = function(knex) {
           description: "My kids are great!"
         },
         {
-          id: 4,
           userID: 2,
           accepted: false,
           meetingPlace: "Food Court",
@@ -44,7 +40,6 @@ exports.seed = function(knex) {
           description: "My kids are great!"
         },
         {
-          id: 5,
           userID: 3,
           chaperoneID: 5,
           accepted: true,
@@ -54,7 +49,6 @@ exports.seed = function(knex) {
           description: "They are great to with!"
         },
         {
-          id: 6,
           userID: 3,
           accepted: false,
           meetingPlace: "Food Court",
@@ -63,7 +57,6 @@ exports.seed = function(knex) {
           description: "My kids are great!"
         },
         {
-          id: 7,
           userID: 4,
           chaperoneID: 3,
           accepted: true,
@@ -73,7 +66,6 @@ exports.seed = function(knex) {
           description: "Most of them are great; one is a trouble maker."
         },
         {
-          id: 8,
           userID: 4,
           accepted: false,
           meetingPlace: "Food Court",
@@ -82,7 +74,6 @@ exports.seed = function(knex) {
           description: "My kids are great!"
         },
         {
-          id: 9,
           userID: 5,
           accepted: false,
           meetingPlace: "Cotton Candy Stand",
@@ -91,7 +82,6 @@ exports.seed = function(knex) {
           description: "They can be good. Sometimes..."
         },
         {
-          id: 10,
           userID: 5,
           chaperoneID: 2,
           accepted: true,
