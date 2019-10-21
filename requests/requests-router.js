@@ -3,9 +3,16 @@ const Requests = require("../requests/requests-model.js");
 
 /* --- Insert a request -- */
 router.post("/", (req, res) => {
-  const { id, meetingPlace, dateTime, kids, description } = req.body;
+  const {
+    requesterUserID,
+    meetingPlace,
+    dateTime,
+    kids,
+    description
+  } = req.body;
   //Required Fields
-  if (id && meetingPlace && dateTime && kids) {
+  console.log(req.body);
+  if (requesterUserID && meetingPlace && dateTime && kids) {
     Requests.insert(req.body)
       .then(response => {
         if (response) {
