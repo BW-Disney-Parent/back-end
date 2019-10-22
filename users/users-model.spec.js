@@ -1,15 +1,12 @@
 const Users = require("./users-model.js");
 const db = require("../data/dbConfig.js");
-function truncateDB() {
-  return db("users").truncate();
-}
 
 it("should set environment to testing", () => {
   expect(process.env.DB_ENV).toBe("testing");
 });
 
 beforeEach(async () => {
-  await truncateDB();
+  await db("users").truncate();
 });
 
 describe("Insert", () => {

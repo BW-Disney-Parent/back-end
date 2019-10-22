@@ -1,6 +1,6 @@
 const request = require("supertest");
 
-const Users = require("../data/dbConfig.js");
+const db = require("../data/dbConfig.js");
 
 const bcrypt = require("bcryptjs");
 
@@ -10,7 +10,7 @@ const server = require("../api/server.js");
 describe("POST /register", function() {
   beforeEach(async () => {
     // this function executes and clears out the table before each test
-    await Users("users").truncate();
+    await db("users").truncate();
   });
 
   it("responds with 201", function(done) {
@@ -54,7 +54,7 @@ describe("POST /login", function() {
     const hash = bcrypt.hashSync("Devin", salt);
 
     //need to insert user because db is empty
-    return Users("users")
+    return db("users")
       .insert({
         username: "Devin",
         password: hash,
