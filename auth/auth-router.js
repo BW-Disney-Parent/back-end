@@ -62,8 +62,12 @@ router.post("/login", requiredLogin, (req, res) => {
       //Check if passwords are the same
       if (user && bcrypt.compareSync(creds.password, user.password)) {
         const token = generateToken(user);
+
+        newUser = { ...user, isParent: user.isParent === "1" ? true : false };
+
         res.status(202).json({
           message: "Correct Credentials!",
+          user: newUser,
           token
         });
       } else {
